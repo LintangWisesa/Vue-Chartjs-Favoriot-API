@@ -1,6 +1,7 @@
 <template>
   <div>
     <button v-on:click="get">Klik</button>
+    <line-chart :chartdata="chartdata" :options="chartoptions"/>
     <ul>
       <li v-for="(x, i) in dataout" :key="i">
         {{ x.id }} {{ x.title }}
@@ -11,6 +12,7 @@
 
 <script>
 import axios from 'axios'
+
 export default {
   data(){
     return {
@@ -25,7 +27,7 @@ export default {
         this.dataout = x.data
       })
     }
-  }
+  },
 }
 </script>
 

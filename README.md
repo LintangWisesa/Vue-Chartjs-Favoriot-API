@@ -1,6 +1,12 @@
 # favoriot_vue_chartjs
 
-## Project setup
+### Install vue-chartjs & chart.js
+
+```
+npm install vue-chartjs chart.js --save
+```
+
+### Project setup
 ```
 npm install
 ```
