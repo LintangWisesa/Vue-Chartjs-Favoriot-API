@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <button v-on:click="get">Klik</button>
+    <ul>
+      <li v-for="(x, i) in dataout" :key="i">
+        {{ x.id }} {{ x.title }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import axios from 'axios'
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      dataout: []
+    }
+  },
+  methods: {
+    get(){
+      axios.get('https://jsonplaceholder.typicode.com/posts')
+      .then((x)=>{
+        console.log(x.data)
+        this.dataout = x.data
+      })
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
