@@ -2,18 +2,21 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <FavoriotChart/>
+    <!-- <FavoriotChart/> -->
+    <tesChart/>    
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import FavoriotChart from './components/FavoriotChart.vue'
+// import FavoriotChart from './components/FavoriotChart.vue'
+import tesChart from './components/tesChart.vue'
 
 export default {
   name: 'app',
   components: {
-    FavoriotChart
+    // FavoriotChart
+    tesChart
   }
 }
 </script>
