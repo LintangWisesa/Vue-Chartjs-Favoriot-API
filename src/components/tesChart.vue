@@ -28,10 +28,19 @@
             {
               label: 'Data One',
               backgroundColor: 'lightblue',
+              borderColor: 'blue', 
+              pointBackgroundColor: 'white', 
+              borderWidth: 1, 
+              pointBorderColor: 'white',
               data: [this.getRandomInt(), this.getRandomInt()]
-            }, {
+            }, 
+            {
               label: 'Data One',
               backgroundColor: 'lightpink',
+              borderColor: 'red', 
+              pointBackgroundColor: 'white', 
+              borderWidth: 1, 
+              pointBorderColor: 'white',
               data: [this.getRandomInt(), this.getRandomInt()]
             }
           ]
