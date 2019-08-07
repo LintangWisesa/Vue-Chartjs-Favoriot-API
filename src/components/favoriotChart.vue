@@ -124,8 +124,8 @@
 
 <style>
   .small {
-    width: 400px;
+    width: 500px;
     height: 100px;
-    margin: 150px auto;
+    margin: auto
   }
 </style>
