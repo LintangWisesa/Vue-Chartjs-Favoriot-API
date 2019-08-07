@@ -1,10 +1,48 @@
 <template>
   <div class="small">
+    
+    <form class="col s12">
+      <div class="row">
+        
+        <div class="input-field col s3">
+          <input id="temp" type="text" class="validate">
+          <label for="temp">Temperature...</label>
+        </div>
+
+        <div class="input-field col s3">
+          <input id="hum" type="text" class="validate">
+          <label for="hum">Humidity...</label>
+        </div>
+
+        <div class="input-field col s3">
+          <input id="pot" type="text" class="validate">
+          <label for="pot">Potentiometer...</label>
+        </div>
+
+        <div class='col s3'>
+          <div class="row">
+            <a class="col s6 waves-effect waves-light btn-large teal lighten-2">
+              <i class="material-icons">cloud_download</i>
+            </a>
+
+            <a class="col s6 waves-effect waves-light btn-large pink lighten-1">
+              <i class="material-icons">cloud_upload</i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
     <line-chart 
       v-if="loaded" 
       :chart-data="datacollection"
     ></line-chart>
-    <button @click="getFavoriot()">Randomize</button>
+    
+    <button @click="getFavoriot()">
+      Randomize
+    </button>
+  
   </div>
 </template>
 

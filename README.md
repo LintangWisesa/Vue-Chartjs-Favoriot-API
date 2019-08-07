@@ -3,7 +3,7 @@
 ### Install axios, vue-chartjs & chart.js
 
 ```
-npm i axios vue-chartjs chart.js frappe-charts
+npm i axios vue-chartjs chart.js
 ```
 
 ### Project setup
