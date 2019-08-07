@@ -1,9 +1,9 @@
 # favoriot_vue_chartjs
 
-### Install vue-chartjs & chart.js
+### Install axios, vue-chartjs & chart.js
 
 ```
-npm install vue-chartjs chart.js --save
+npm i axios vue-chartjs chart.js frappe-charts
 ```
 
 ### Project setup
