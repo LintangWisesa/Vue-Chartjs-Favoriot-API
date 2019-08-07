@@ -5,27 +5,31 @@
       <div class="row">
         
         <div class="input-field col s3">
-          <input id="temp" type="text" class="validate">
+          <input id="temp" type="text" class="validate" ref='temp'>
           <label for="temp">Temperature...</label>
         </div>
 
         <div class="input-field col s3">
-          <input id="hum" type="text" class="validate">
+          <input id="hum" type="text" class="validate" ref='hum'>
           <label for="hum">Humidity...</label>
         </div>
 
         <div class="input-field col s3">
-          <input id="pot" type="text" class="validate">
+          <input id="pot" type="text" class="validate" ref='pot'>
           <label for="pot">Potentiometer...</label>
         </div>
 
         <div class='col s3'>
           <div class="row">
-            <a class="col s6 waves-effect waves-light btn-large teal lighten-2">
+            <a class="col s6 waves-effect waves-light btn-large teal lighten-2"
+            @click="getFavoriot()"
+            >
               <i class="material-icons">cloud_download</i>
             </a>
 
-            <a class="col s6 waves-effect waves-light btn-large pink lighten-1">
+            <a class="col s6 waves-effect waves-light btn-large pink lighten-1"
+            @click="postFavoriot()"
+            >
               <i class="material-icons">cloud_upload</i>
             </a>
           </div>
@@ -38,10 +42,6 @@
       v-if="loaded" 
       :chart-data="datacollection"
     ></line-chart>
-    
-    <button @click="getFavoriot()">
-      Randomize
-    </button>
   
   </div>
 </template>
@@ -107,6 +107,9 @@
           ]
         }
       },
+      tesInput(){
+        alert(this.$refs.temp.value + this.$refs.hum.value + this.$refs.pot.value)
+      },
       getRandomInt () {
         return Math.floor(Math.random() * (50 - 5 + 1)) + 5
       },
@@ -154,6 +157,31 @@
         })
         .catch(()=>{
           alert('Failed to get the data 😭')
+        })
+      },
+      postFavoriot(){
+        var url = 'https://api.favoriot.com/v1/streams'
+        var headers = {
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkxpbnRhbmdfV2lzZXNhIiwicmVhZF93cml0ZSI6dHJ1ZSwiaWF0IjoxNDkzODgyODczfQ.0n_FIr4vapSjewJE2e7cb-FTXs3JsUMTHsTgT2mYNFs'
+          }
+        }
+        var dataBody = {
+          device_developer_id: "deviceDefault@Lintang_Wisesa",
+          data: {
+            Temperature: this.$refs.temp.value,
+            Humidity: this.$refs.hum.value,
+            Potentio: this.$refs.pot.value,
+          }
+        }
+        axios.post(url, dataBody, headers)
+        .then(()=>{
+          alert('Data posted successfully! 😍')
+          this.getFavoriot()
+        })
+        .catch(()=>{
+          alert('Failed to post the data 😭')
         })
       }
     }
