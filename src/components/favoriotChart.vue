@@ -49,6 +49,7 @@
 <script>
   import LineChart from './favoriotLine.js'
   import axios from 'axios'
+  // npm i axios
 
   export default {
     components: {

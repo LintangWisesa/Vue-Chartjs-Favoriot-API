@@ -1,3 +1,4 @@
+// npm i vue-chartjs chart.js
 import { Line, mixins } from 'vue-chartjs'
 const { reactiveProp } = mixins
 
